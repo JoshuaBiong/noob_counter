@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Noob Counter'),
     );
   }
 }
@@ -37,16 +37,18 @@ class _MyHomePageState extends State<MyHomePage> {
 // functions +
   void _incrementCounter() {
     _counter == -1;
+    if (_counter >= 10) {
+      isChange = true;
+    }
     setState(() {
       _counter++;
-      isChange = true;
     });
   }
 
   void _reset() {
     setState(() {
-      isChange = false;
       _counter = 0;
+      isChange = false;
     });
   }
 
@@ -65,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Center(child: Text(widget.title)),
       ),
       body: Center(
         child: Column(
@@ -76,7 +78,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               "$_counter",
-              style: const TextStyle(fontSize: 60),
+              style: const TextStyle(
+                fontSize: 60,
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -87,10 +91,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 FloatingActionButton(
                   onPressed: _reset,
-                  child: const Text('RESET'),
+                  child: const Text(
+                    'RESET',
+                  ),
                 ),
                 FloatingActionButton(
-                  backgroundColor: isChange ? Colors.amber : Colors.blue,
+                  backgroundColor: isChange ? Colors.red[900] : Colors.blue,
                   onPressed: _incrementCounter,
                   child: const Text('+'),
                 )
