@@ -36,17 +36,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
 // functions +
   void _incrementCounter() {
-    if (_counter == 10) {
-      _counter = -1;
-      isChange = false;
-    } else if (_counter == -1) {
-      isChange = false;
-    } else {
-      isChange = true;
-    }
-
+    _counter == -1;
     setState(() {
       _counter++;
+      isChange = true;
     });
   }
 
