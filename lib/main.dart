@@ -73,14 +73,14 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'START THE COUNTING',
+            Text(
+              isChange ? 'YOURE EXCEEDING TO 10' : 'START THE COUNTING',
+              style: TextStyle(color: isChange ? Colors.red : Colors.black),
             ),
             Text(
               "$_counter",
-              style: const TextStyle(
-                fontSize: 60,
-              ),
+              style: TextStyle(
+                  fontSize: 60, color: isChange ? Colors.red : Colors.black),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
